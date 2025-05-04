@@ -1,68 +1,20 @@
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
+# 🧮 Simple Calculator (Java Swing)
 
-public class SimpleCalculator extends JFrame implements ActionListener {
-    JTextField input1, input2, result;
-    JButton addBtn, subBtn, mulBtn, divBtn;
+This is a basic Java GUI application that performs simple arithmetic operations—Addition, Subtraction, Multiplication, and Division—using **Swing**, Java's built-in GUI toolkit.
 
-    public SimpleCalculator() {
-        setTitle("Simple Calculator");
-        setSize(400, 250);
-        setLayout(new GridLayout(5, 2, 10, 10));
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+## 🚀 Features
 
-        add(new JLabel("Enter First Number:"));
-        input1 = new JTextField();
-        add(input1);
+- User-friendly interface built with Swing
+- Handles four basic arithmetic operations
+- Input validation for incorrect or empty entries
+- Clean layout using `GridLayout`
 
-        add(new JLabel("Enter Second Number:"));
-        input2 = new JTextField();
-        add(input2);
+## 🖥️ Preview
 
-        add(new JLabel("Result:"));
-        result = new JTextField();
-        result.setEditable(false);
-        add(result);
+![Calculator Screenshot](path/to/screenshot.png) <!-- Replace with actual image path -->
 
-        addBtn = new JButton("Add");
-        subBtn = new JButton("Subtract");
-        mulBtn = new JButton("Multiply");
-        divBtn = new JButton("Divide");
+## 📁 Project Structure
 
-        addBtn.addActionListener(this);
-        subBtn.addActionListener(this);
-        mulBtn.addActionListener(this);
-        divBtn.addActionListener(this);
-
-        add(addBtn);
-        add(subBtn);
-        add(mulBtn);
-        add(divBtn);
-
-        setVisible(true);
-    }
-
-    public void actionPerformed(ActionEvent e) {
-        try {
-            double num1 = Double.parseDouble(input1.getText());
-            double num2 = Double.parseDouble(input2.getText());
-            double output = 0;
-
-            if (e.getSource() == addBtn)
-                output = num1 + num2;
-            else if (e.getSource() == subBtn)
-                output = num1 - num2;
-            else if (e.getSource() == mulBtn)
-                output = num1 * num2;
-            else if (e.getSource() == divBtn)
-                output = num2 != 0 ? num1 / num2 : Double.NaN;
-
-            result.setText(String.valueOf(output));
-        } catch (NumberFormatException ex) {
-            result.setText("Invalid Input");
-        }
-    }
 
     public static void main(String args[]) {
         new SimpleCalculator();
